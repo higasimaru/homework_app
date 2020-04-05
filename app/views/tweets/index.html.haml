@@ -1,5 +1,35 @@
 .wrapper
- = render partial: 'header'
-
- = render partial: 'side_bar'
+  = render partial: 'header'
+  .container
+    .container__main-tweet
+      .container__main-tweet__contents
+        .container__main-tweet__contents__content
+          .container__main-tweet__contents__content__text
+            %span
+              もう4月だよ！
+          .container__main-tweet__contents__content__right-box
+            .container__main-tweet__contents__content__right-box__name
+              %span
+                kuro
+            .container__main-tweet__contents__content__right-box__date
+              %span
+                2020/4/4 12:00
+    .container__form
+      %form.container__form__message
+        %textarea.container__form__message__comment{name: :comment, placeholder: "Type a comment", type: :content}
+        .container__form__message__right-box
+          %label.container__form__message__right-box__label
+            = icon('fa', 'camera-retro', class: "container__form__message__right-box__label__camera")
+            %input.container__form__message__right-box__label__file{name: :file, type: :file}
+      .container__form__submit
+        %button.container__form__submit__btn{type: :submit}
+          .container__form__submit__btn__icon
+            = icon('fa', 'comments', class: :container__form__submit__btn__icon__shape)
+          %span           
+            投稿する
+    .container__footer
+      .container__footer__logo
+        %p
+          HomeWork App 2020
+  = render partial: 'side_bar'
  
