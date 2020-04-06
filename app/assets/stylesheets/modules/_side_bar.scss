@@ -1,0 +1,17 @@
+.side-bar {
+  height: 100vh;
+  background-color: #696969;
+  padding: 50px 25px;
+  &__main {
+    width: 250px;
+    background-color: $boro;
+    padding: 5px;
+    &__image {
+      height: 200px;
+      width: 240px;
+      background-color: $origin;
+
+    }
+
+  }
+}

@@ -1,0 +1,31 @@
+.header {
+  height: 90px;
+  width: calc(100% - 300px);
+  background-color: $blue;
+  position: fixed;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 3px 3px 5px 2px gray;
+  &__logo {
+    color: #330000;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  &__search-box {
+    &__input-text {
+      display: block;
+      height: 30px;
+      width: 300px;
+      background-color: #FFFFFF;
+      padding-left: 5px;
+      margin-left: 100px;    
+    }
+  }
+  &__name-box {
+    color: #330000;
+    margin-left: 150px;
+  }
+}

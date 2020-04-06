@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+@import 'mixin';
+.container {
+  height: 100vh;
+  width: calc(100% - 300px);  
+  background-color: $boro;
+  padding-top: 40px;
+  margin-top: 5px;
+  position: fixed;
+  top: 90px;
+  right: 0;
+  &__main-tweet {
+    height: 300px;
+    width: 800px;
+    background-color: $origin;
+    margin: 0 auto;
+    padding: 0 50px;
+    margin-bottom: 40px;
+    overflow: scroll;
+    @include box-shadow;
+    &__contents {
+      height: 90px;
+      border: 1px solid $boro;
+      padding: 5px; 
+      &:hover {
+        color: $origin;
+        background-color: $blue;
+        transition: 1s;
+      }    
+      &__content{
+        display: flex;
+        justify-content: space-between;
+        &__text {
+          font-style: italic;
+        }
+        &__right-box {
+          font-size: 10px;
+          padding-top: 45px;
+        }
+      }
+    }
+  }
+  &__form {
+    height: 200px;
+    width: 800px;
+    background-color: $origin;
+    margin: 0 auto;
+    padding: 20px;
+    @include box-shadow;
+    &__message {
+      display: flex;
+      position: relative;
+      &__comment {
+        max-height: 130px;
+        min-height: 53px;
+        width: 100%;
+        border: thin solid $boro;
+        padding-left: 10px;
+        margin-bottom: 12px;
+      }
+      &__right-box {
+        position: absolute;
+        right: 0;
+        &__label {
+          display: block;
+          height: 100%;
+          background-color: $boro;
+          &__camera {
+            font-size: 30px;
+            color: brown;
+            line-height: 50px;
+            margin: 0 auto;
+            padding: 0 10px;
+          }
+          &__file {            
+            display: none;
+          }
+        }
+      }
+    }
+    &__submit {
+      width: 100px;
+      margin: 0 auto;
+      background-color: $boro;
+      border: thin solid $boro;
+      border-radius: 10px;
+      &__btn {
+        width: 100%;
+        display: flex;
+        padding-left: 6px;
+        &__icon {
+          color: $origin;
+        }
+        span {
+          padding-left: 5px;
+        }
+      }      
+    }
+  }
+  &__footer {
+    height: 60px;
+    width: calc(100% - 300px);
+    background-color: #f5f5f5;
+    position: fixed;
+    bottom: 0;
+    &__logo {    
+      text-align: center;
+      line-height: 60px;
+    }
+  }
+}
