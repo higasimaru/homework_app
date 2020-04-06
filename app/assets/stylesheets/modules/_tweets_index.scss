@@ -54,6 +54,7 @@
       position: relative;
       &__comment {
         max-height: 130px;
+        min-height: 53px;
         width: 100%;
         border: thin solid $boro;
         padding-left: 10px;
