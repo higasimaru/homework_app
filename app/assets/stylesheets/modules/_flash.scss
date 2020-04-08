@@ -1,0 +1,12 @@
+.notification {
+  .notice {
+    background-color: #303057;
+    color: $origin;
+    padding-left: 30px;
+  }
+  .alert {
+    background-color: #f16f6f;
+    color: $origin;
+    padding-left: 30px;
+  }
+}

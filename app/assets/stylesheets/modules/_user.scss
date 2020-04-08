@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+.account-wrapper {
+  width: 100%;
+  background-color: $user;
+  &__header {
+    height: 60px;
+    background-color: #98fafa;
+    &__logo {
+      text-align: center;
+      line-height: 60px;
+    }
+  }
+  &__container {
+    width: calc(100% - 500px);
+    background-color: $origin;
+    margin: 0 auto;
+    padding: 80px;
+
+    &__logo {
+      text-align: center;
+      font-size: 20px;
+      border-bottom: thin solid $boro;
+    }
+    &__or {
+      text-align: center;
+      font-size: 20px;
+      .btn {
+        display: block;
+        height: 40px;
+        width: 30%;
+        margin: 0 auto;
+        line-height: 40px;
+        background-color: $user;
+        text-decoration: none;
+        color: black;
+        border: thin solid $boro;
+        border-radius: 5px;
+      }
+      .forgot {
+        font-size: 18px;
+      }
+    }
+    &__form {
+      width: 100%;
+      padding: 20px 220px;
+
+      .field {
+        margin-bottom: 40px;
+        input {
+          height: 50px;
+          width: 100%;
+          border: thin solid $boro;
+          border-radius: 10px;
+          padding: 5px;         
+        }
+      }
+      .field-remember {
+        display: flex;
+        margin-bottom: 40px;
+      }
+      .actions {
+        height: 40px;
+        background-color: rgb(69, 69, 224);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        font-size: 20px;
+        color: $origin;
+        input {
+          height: 100%;
+          width: 100%;          
+        }       
+      }
+    }
+  }
+  &__footer {
+    height: 40px;
+    background-color: $boro;
+    &__logo {
+      text-align: center;
+      line-height: 40px;      
+    }
+  }
+}

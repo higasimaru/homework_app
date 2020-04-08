@@ -1,0 +1,50 @@
+.account-wrapper
+  .account-wrapper__header
+    .account-wrapper__header__logo
+      %h2 
+        Homework App
+  .account-wrapper__container
+    .account-wrapper__container__logo
+      %h2 
+        新規登録
+    .account-wrapper__container__or
+      %p 
+        or
+      = render "devise/shared/links"
+    .account-wrapper__container__form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          .field__label
+            = f.label :nickname, 'ニックネーム'
+            %em
+              ※8文字以内
+          .field__input
+            = f.text_field :nickname, placeholder: '例 たろう', autofocas: true, autocomplete: "off", maxlength: '8'
+        .field
+          .field__label
+            = f.label :email, 'メールアドレス'
+          .field__input
+            = f.email_field :email, placeholder: '例 sample@gmil.com', autofocus: true, autocomplete: "email"
+        .field
+          .field__label
+            = f.label :password, 'パスワード'
+            - if @minimum_password_length
+              %em
+                ※6文字以上の半角英数字
+          .field__input
+            = f.password_field :password, autocomplete: "new-password"
+        .field
+          .field__label
+            = f.label :password_confirmation, 'パスワード'
+            %em
+              ※確認用
+          .field__input
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          .actions__btn
+            = f.submit "新規登録"
+  .account-wrapper__footer
+    .account-wrapper__footer__logo
+      %p 
+        Homework App 2020
