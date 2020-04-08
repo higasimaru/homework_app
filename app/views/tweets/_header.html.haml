@@ -5,9 +5,13 @@
   .header__search-box
     %input.header__search-box__input-text{name: :text, placeholder: :search, type: :text}
   .header__name-box
-    %span
-      kuro
+    .header__name-box__name
+    = link_to edit_user_path(current_user.id), class: 'btn' do
+      %span
+        = current_user.nickname      
+      
   .header__logout
     %button.header__logout__logout-btn{type: :submit}
+    = link_to destroy_user_session_path, method: :delete, class: 'btn' do
       %span
         ログアウト
