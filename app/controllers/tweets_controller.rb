@@ -3,6 +3,9 @@ class TweetsController < ApplicationController
     
   end
 
+  def create
+  end
+
   private
 
   def tweet_params
