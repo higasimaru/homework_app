@@ -3,9 +3,6 @@
   = link_to new_movie_path class: 'btn' do
     %span
       movie作成
-  
-    %span
-      movie編集
   .side-bar__main
     - current_user.movies.each do |movie|
       .side-bar__main__image      
