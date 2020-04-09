@@ -1,0 +1,13 @@
+= form_for movie do |f|
+  - if movie.errors.any?
+    .movie-form__errors
+      %h2
+      = "#{@movie.errors.full_messages.count}件のエラーがあります"
+      %ul
+        - movie.errors.full_messages.each do |error|
+          %li
+          = error
+  .movie-form__field
+    = f.text_field :name 
+    = f.collection_check_boxes :user_ids, User.all, :id, :nickname
+    = f.submit '保存'
