@@ -13,4 +13,7 @@ class User < ApplicationRecord
 
     errors.add :password, 'Complexity requirement not met. Length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
   end
+
+  has_many :movie_users
+  has_many :movies, through: :movie_users
 end

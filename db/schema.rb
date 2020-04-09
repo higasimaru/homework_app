@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200406112421) do
+ActiveRecord::Schema.define(version: 20200409012932) do
+
+  create_table "movie_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_movie_users_on_movie_id", using: :btree
+    t.index ["user_id"], name: "index_movie_users_on_user_id", using: :btree
+  end
+
+  create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_movies_on_name", unique: true, using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
@@ -26,4 +42,6 @@ ActiveRecord::Schema.define(version: 20200406112421) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "movie_users", "movies"
+  add_foreign_key "movie_users", "users"
 end
