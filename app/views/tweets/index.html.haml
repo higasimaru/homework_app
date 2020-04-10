@@ -15,18 +15,19 @@
               %span
                 2020/4/4 12:00
     .container__form
-      %form.container__form__message
-        %textarea.container__form__message__comment{name: :comment, placeholder: "Type a comment", type: :content}
-        .container__form__message__right-box
-          %label.container__form__message__right-box__label
+      = form_for [@movie, @tweet] do |f|
+        .container__form__message        
+          = f.text_field :content, class: 'container__form__message__comment', placeholder: "Type a comment"
+          .container__form__message__right-box
+          = f.label :image, class: 'container__form__message__right-box__label' do
             = icon('fa', 'camera-retro', class: "container__form__message__right-box__label__camera")
-            %input.container__form__message__right-box__label__file{name: :file, type: :file}
-      .container__form__submit
-        %button.container__form__submit__btn{type: :submit}
+            = f.file_field :image, class: 'filecontainer__form__message__right-box__label__file', style: 'display: none;'
+        .container__form__submit
+          = f.submit '投稿する', class: 'container__form__submit__btn'
           .container__form__submit__btn__icon
-            = icon('fa', 'comments', class: :container__form__submit__btn__icon__shape)
-          %span           
-            投稿する
+            = icon('fa', 'comments', class: 'container__form__submit__btn__icon__shape')
+          
+
     .container__footer
       .container__footer__logo
         %p
