@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200409012932) do
+ActiveRecord::Schema.define(version: 20200409090431) do
 
   create_table "movie_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "movie_id"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20200409012932) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_movies_on_name", unique: true, using: :btree
+  end
+
+  create_table "tweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "image"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_tweets_on_movie_id", using: :btree
+    t.index ["user_id"], name: "index_tweets_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,4 +55,6 @@ ActiveRecord::Schema.define(version: 20200409012932) do
 
   add_foreign_key "movie_users", "movies"
   add_foreign_key "movie_users", "users"
+  add_foreign_key "tweets", "movies"
+  add_foreign_key "tweets", "users"
 end

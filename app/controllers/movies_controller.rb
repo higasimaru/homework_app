@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
   def update  
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
-      redirect_to root_path, notice: '動画を更新しました'
+      redirect_to movie_tweets_path(@movie), notice: '動画を更新しました'
     else
       render :edit
     end
@@ -33,4 +33,5 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:name, user_ids: [])
   end
+
 end

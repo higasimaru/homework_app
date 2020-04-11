@@ -1,0 +1,18 @@
+.container__main-tweet__contents         
+  .container__main-tweet__contents__content
+    - if tweet.image.present? 
+      .container__main-tweet__contents__content__image 
+        = image_tag tweet.image.url 
+    - if tweet.content.present?         
+      .container__main-tweet__contents__content__text           
+        %span            
+        = simple_format tweet.content
+      
+    
+    .container__main-tweet__contents__content__right-box
+      .container__main-tweet__contents__content__right-box__name
+        %span
+        = tweet.user.nickname
+      .container__main-tweet__contents__content__right-box__date
+        %span
+        = tweet.created_at.to_s(:datetime_jp)
