@@ -6,24 +6,25 @@
   height: 100vh;
   width: calc(100% - 300px);  
   background-color: $boro;
-  padding-top: 40px;
   margin-top: 5px;
   position: fixed;
   top: 90px;
   right: 0;
+  &__movie {
+    padding-left: 10px;
+  }
   &__main-tweet {
-    height: 300px;
+    height: 400px;
     width: 800px;
     background-color: $origin;
-    margin: 0 auto;
-    padding: 0 50px;
-    margin-bottom: 40px;
+    padding: 5px 30px 5px;
+    margin: 5px auto 40px;
     overflow: scroll;
     @include box-shadow;
     &__contents {
-      height: 90px;
       border: 1px solid $boro;
       padding: 5px; 
+      
       &:hover {
         color: $origin;
         background-color: $blue;
@@ -31,19 +32,27 @@
       }    
       &__content{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        &__image {
+          padding-right: 5px;
+        }
         &__text {
+          width: 65%;
           font-style: italic;
+          overflow-wrap: break-word;
         }
         &__right-box {
           font-size: 10px;
-          padding-top: 45px;
+          height: 100%; 
+          padding-top: 10%;        
+          margin-left: auto;
+          
         }
       }
     }
   }
   &__form {
-    height: 200px;
+    height: 130px;
     width: 800px;
     background-color: $origin;
     margin: 0 auto;
@@ -52,14 +61,22 @@
     &__message {
       display: flex;
       position: relative;
+      .field_with_errors {
+        width: 100%;
+      }
       &__comment {
-        max-height: 130px;
+        max-height: 70px;
         min-height: 53px;
         width: 100%;
+        min-width: 100%;
         border: thin solid $boro;
+        padding-top: 5px;
         padding-left: 10px;
         margin-bottom: 12px;
-      }
+        
+        
+      
+      }     
       &__right-box {
         position: absolute;
         right: 0;
@@ -74,7 +91,7 @@
             margin: 0 auto;
             padding: 0 10px;
           }
-          &__file {            
+          input {            
             display: none;
           }
         }
@@ -86,8 +103,7 @@
       background-color: $boro;
       border: thin solid $boro;
       border-radius: 10px;
-      &__btn {
-        width: 100%;
+      &__btn {        
         display: flex;
         padding-left: 6px;
         &__icon {
@@ -100,14 +116,14 @@
     }
   }
   &__footer {
-    height: 60px;
-    width: calc(100% - 300px);
+    height: 40px;
+    width: 100%;
     background-color: #f5f5f5;
     position: fixed;
     bottom: 0;
     &__logo {    
       text-align: center;
-      line-height: 60px;
+      line-height: 40px;
     }
   }
 }

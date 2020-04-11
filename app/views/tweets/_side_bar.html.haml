@@ -1,8 +1,8 @@
 .side-bar
   .side-bar__movies
-  = link_to new_movie_path class: 'btn' do
-    %span
-      movie作成
+    = link_to new_movie_path class: 'btn' do
+      %span
+        movie作成
   .side-bar__main
     - current_user.movies.each do |movie|
       .side-bar__main__image
@@ -15,10 +15,10 @@
             %span
             = "#{movie.name}(編集)"
         .side-bar__main__image__movie--tweet
-        - if movie.show_last_tweet.class == String
-          = movie.show_last_tweet
-        - else
-          = image_tag  movie.show_last_tweet             
+          - if movie.show_last_tweet.class == String
+            = movie.show_last_tweet
+          - else
+            = image_tag  movie.show_last_tweet             
           
 
     

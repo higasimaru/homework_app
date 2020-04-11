@@ -9,9 +9,14 @@
     = link_to edit_user_path(current_user.id), class: 'btn' do
       %span
         = current_user.nickname      
-      
-  .header__logout
-    %button.header__logout__logout-btn{type: :submit}
-    = link_to destroy_user_session_path, method: :delete, class: 'btn' do
-      %span
-        ログアウト
+     
+  .header__log-status
+    %button.header__log-status__log-status-btn{type: :submit}
+      - if user_signed_in?
+        = link_to destroy_user_session_path, method: :delete, class: 'btn' do      
+          %span
+            ログアウト
+      - else
+        = link_to new_user_session_path do 
+          %span
+            ログイン

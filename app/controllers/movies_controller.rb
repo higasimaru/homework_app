@@ -33,4 +33,5 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:name, user_ids: [])
   end
+
 end
