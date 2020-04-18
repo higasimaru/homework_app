@@ -8,7 +8,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = @movie.tweets.new(tweet_params)
     if @tweet.save
-      redirect_to movie_tweets_path(@movie), notice: 'コメントしました！'
+      respond_to do |format|
+        format.json
+      end
     else
       @tweets = @movie.tweets.includes(:user)
       flash.now[:alert] = '送信できませんでした'
