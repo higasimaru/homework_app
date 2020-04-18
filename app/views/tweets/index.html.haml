@@ -18,10 +18,8 @@
             = f.label :image, class: 'container__form__message__right-box__label' do
               = icon('fa', 'camera-retro', class: "container__form__message__right-box__label__camera")
               = f.file_field :image, class: 'filecontainer__form__message__right-box__label__file'
-        .container__form__submit
-          
-          = button_tag type: 'submit', class: 'container__form__submit__btn' do
-            
+        .container__form__submit          
+          = button_tag type: 'submit', class: 'container__form__submit__btn' do            
             .container__form__submit__btn__icon
               = icon('fa', 'comments', class: 'container__form__submit__btn__icon__shape')
             %span

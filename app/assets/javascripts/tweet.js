@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(data) {
-    if (data.image != null) {
+    if (data.image) {
       var html = `<div class="container__main-tweet__contents">
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__image">
@@ -58,17 +58,14 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      console.log(data.content)
-      if (data.content !== '') {
         buildHTML(data);
-        $('#tweet_content').val('')
-      } 
-      
-      
-
+       $('form')[0].reset();
+       $('.container__main-tweet').animate({
+         scrollTop: $('.container__main-tweet')[0].scrollHeight
+       },500)
     })
     .fail(function() {
-      alert('通信エラーです');
+      alert('コメントを入力して下さい');
     })
   })
 })
