@@ -1,0 +1,56 @@
+.movie-form{
+  padding-left: 30px;
+  &__field {
+  margin: 15px;
+    label {
+      font-size: 20px;
+    }
+    input {
+      height: 40px;
+      width: 250px;
+      padding-left: 10px;
+      margin-left: 43px;
+      border: 1px solid;
+    }
+}
+  &__user {
+    label {
+      font-size: 20px;
+    }
+    input {
+      height: 40px;
+      width: 250px;
+      padding-left: 10px;
+      border: 1px solid;
+    }
+  }
+  &__submit {
+    height: 50px;
+    width: 100px;
+    background-color: #db4966;
+    color: $origin;
+    border-radius: 5em;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    margin: 30px auto;
+  }
+  &__result {
+    margin: 10px 15px 15px 135px;
+    &__box {
+      width: 500px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $boro;
+      .add-btn {
+        width: 60px;
+        font-size: 15px;
+        background:  #db4966;
+        color: $origin;
+        border-radius: 3em;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+}
