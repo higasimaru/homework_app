@@ -19,7 +19,20 @@
     .movie-form__member
       %label.movie-form__member__name-label メンバー:
       .movie-form__member__list
-      
+        .movie-form__member__list__lists
+          %input{name: 'movie[user_ids][]', value: current_user.id, type: 'hidden'}
+          %p.member
+            = current_user.nickname
+          .self-btn あなた
+
+        - movie.users.each do |user|
+          - if current_user.nickname != user.nickname
+            .movie-form__member__list__lists
+              %input{name: 'movie[user_ids][]', value: user.id, type: 'hidden'}
+              %p.member
+                = user.nickname
+              .remove-btn 削除
+
     .movie-form__submit
       = f.submit '保存', class: '.movie-form__submit__btn'
 

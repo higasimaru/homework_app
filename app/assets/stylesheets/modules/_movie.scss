@@ -27,7 +27,7 @@
   &__submit {
     height: 50px;
     width: 100px;
-    background-color: #db4966;
+    background-color: $crimson;
     color: $origin;
     border-radius: 5em;
     display: block;
@@ -42,15 +42,51 @@
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid $boro;
+      margin-bottom: 10px;
       .add-btn {
         width: 60px;
         font-size: 15px;
-        background:  #db4966;
+        background:  $crimson;
         color: $origin;
         border-radius: 3em;
         text-align: center;
         cursor: pointer;
       }
     }
+  }
+  &__member {
+    display: flex;
+    border: 1px solid $boro;
+    padding: 20px 0;
+    margin: 50px 0;
+    &__name-label {
+      font-size: 20px;
+      padding-left: 10px;
+    }
+    &__list__lists {
+      width: 500px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $crimson;
+      margin-left: 42px;
+      margin-bottom: 10px;
+      .remove-btn {
+        width: 60px;
+        font-size: 15px;
+        background-color: $boro;
+        border-radius: 3em;
+        text-align: center;
+        cursor: pointer;
+      }
+      .self-btn {
+        width: 60px;
+        font-size: 15px;
+        background-color: #9c9ce4;
+        color: $origin;
+        border-radius: 3em;
+        text-align: center;
+      }
+    } 
+
   }
 }

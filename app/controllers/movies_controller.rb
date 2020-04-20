@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   end
   def new
     @movie = Movie.new
-    @movie.users << current_user 
+    # @movie.users << current_user 
   end
 
   def create
