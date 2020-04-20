@@ -1,7 +1,29 @@
 $(function() {
+  var reloadTweets = function() {
+    var recent_tweet = $('.container__main-tweet__contents:last').data('tweet-id');
+    $.ajax({
+      type: 'GET',
+      url: 'api/tweets',
+      data: { id: recent_tweet},
+      dataType: 'json'
+    })
+    .done(function(datas) {
+      console.log(datas)
+      var insertHTML = ''
+     $.each(datas, function(i, data) {
+      insertHTML += buildHTML(data)
+     })
+      $('.container__main-tweet').append(insertHTML)
+    })
+    .fail(function() {
+      alert('通信エラーです');
+    })
+  }
+  
+  
   function buildHTML(data) {
     if (data.image) {
-      var html = `<div class="container__main-tweet__contents">
+      var html = `<div class="container__main-tweet__contents data-tweet-id='${data.id}'">
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__image">
                         <img src="${data.image}">
@@ -23,7 +45,7 @@ $(function() {
                     </div>
                   </div>`
     } else {
-      var html = `<div class="container__main-tweet__contents">
+      var html = `<div class="container__main-tweet__contents data-tweet-id='${data.id}'">
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__text">
                         <span></span>
@@ -68,4 +90,5 @@ $(function() {
       alert('コメントを入力して下さい');
     })
   })
+  setInterval(reloadTweets, 7000)
 })
