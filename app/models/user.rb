@@ -17,4 +17,9 @@ class User < ApplicationRecord
   has_many :movie_users
   has_many :movies, through: :movie_users
   has_many :tweets
+
+  def self.search(input, name)
+    return nil if input == ''
+    User.where('nickname LIKE(?)', "%#{input}%").where.not(nickname: name).limit(100)
+  end
 end
