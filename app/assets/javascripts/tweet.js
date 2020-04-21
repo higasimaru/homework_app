@@ -1,7 +1,7 @@
-$(function() {
+$(function() { 
   function buildHTML(data) {
     if (data.image) {
-      var html = `<div class="container__main-tweet__contents">
+      var html = `<div class="container__main-tweet__contents" data-tweet-id=${data.id}>
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__image">
                         <img src="${data.image}">
@@ -23,7 +23,7 @@ $(function() {
                     </div>
                   </div>`
     } else {
-      var html = `<div class="container__main-tweet__contents">
+      var html = `<div class="container__main-tweet__contents" data-tweet-id=${data.id}>
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__text">
                         <span></span>
@@ -44,7 +44,6 @@ $(function() {
     }
     $('.container__main-tweet').append(html)
   }
-
   $('#new_tweet').on('submit',function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -68,4 +67,30 @@ $(function() {
       alert('コメントを入力して下さい');
     })
   })
-})
+  var reloadTweets = function() {
+    var recentTweet = $('.container__main-tweet__contents:last').data('tweet-id');
+    $.ajax({
+      type: 'GET',
+      url: 'api/tweets',
+      data: { id: recentTweet },
+      dataType: 'json' 
+    })
+    .done(function(datas) {
+      if (datas.length !== 0) {       
+        $.each(datas, function(i, data) {
+          buildHTML(data)         
+        });      
+        $('.container__main-tweet').animate({
+          scrollTop: $('.container__main-tweet')[0].scrollHeight
+        });
+      }
+    })
+    .fail(function() {
+      alert('通信エラーです');
+    })
+  }
+  if (document.location.href.match(/\/movies\/\d+\/tweets/)) {
+    setInterval(reloadTweets, 7000);
+  };
+});
+
