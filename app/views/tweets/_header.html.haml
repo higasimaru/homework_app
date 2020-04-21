@@ -3,7 +3,10 @@
     %p
       HomeWork App
   .header__search-box
-    %input.header__search-box__input-text{placeholder: :search, type: :text}
+    %input.header__search-box__input-text{placeholder: 'Tweetキーワード検索', type: :text}
+    %button.header__search-box__btn{type: 'button'}
+      %p 一覧へ
+      
   .header__name-box
     .header__name-box__name
     = link_to edit_user_path(current_user.id), class: 'btn' do
