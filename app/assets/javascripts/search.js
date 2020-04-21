@@ -102,9 +102,10 @@ $(function() {
     .done(function(datas) {
       $('.container__main-tweet').empty();
       $('.container__main-tweet').prepend('<p>検索結果　' + datas.length +'件</p>')
-      if (datas.length !== 0) {       
+      if (datas.length !== 0) {    
         datas.forEach(function(data) {
           searchHTML(data);
+          $('.container__main-tweet').scrollTop(0)
         })
       } else if (words.length == 0){
         return false;
