@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root 'movies#index'
   resources :users, only: [:index, :edit, :update]
   resources :movies, only: [:index, :new, :create, :edit, :update] do
-    resources :tweets, only: [:index, :create]
-
+    resources :tweets, only: [:index, :create] do
+      collection do
+        get 'search'
+      end
+    end
     namespace :api do
       resources :tweets, only: :index, defaults: { format: 'json' }
     end

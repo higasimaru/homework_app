@@ -18,6 +18,14 @@ class TweetsController < ApplicationController
     end
   end
 
+  def search
+    @tweets = @movie.tweets.includes(:user).search(params[:input])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def tweet_params
