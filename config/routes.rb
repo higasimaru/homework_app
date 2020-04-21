@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :tweets, only: [:index, :create]
 
     namespace :api do
-      resources :tweets, only: :index, defaults: { format: 'json'}
+      resources :tweets, only: :index, defaults: { format: 'json' }
     end
   end
 end
