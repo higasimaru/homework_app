@@ -3,6 +3,10 @@ class TweetsController < ApplicationController
   def index
     @tweet = Tweet.new
     @tweets = @movie.tweets.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
