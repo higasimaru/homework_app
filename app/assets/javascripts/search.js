@@ -69,4 +69,14 @@ $(function() {
       alert('通信エラーです');
     });
   });
+  $(document).on('click', '.header__search-box__btn', function() {
+    $.ajax({
+      type: 'GET',
+      url: 'tweets',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      console.log(data)
+    })
+  })
 });

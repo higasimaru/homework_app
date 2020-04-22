@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
     @tweets = @movie.tweets.includes(:user)
     respond_to do |format|
       format.html
-      format.json
+      format.json {render json: @tweets }
     end
   end
 
