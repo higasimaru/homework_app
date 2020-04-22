@@ -4,10 +4,6 @@ class TweetsController < ApplicationController
     @movies = Movie.all
     @tweet = Tweet.new
     @tweets = @movie.tweets.includes(:user)
-    respond_to do |format|
-      format.html
-      format.json {render json: @tweets }
-    end
   end
 
   def create
@@ -22,14 +18,6 @@ class TweetsController < ApplicationController
       render :index
     end
   end
-
-  def search
-    @tweets = @movie.tweets.includes(:user).search(params[:input])
-    respond_to do |format|
-      format.json
-    end
-  end
-
 
   private
 
