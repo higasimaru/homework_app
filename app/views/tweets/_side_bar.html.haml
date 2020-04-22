@@ -4,7 +4,7 @@
       %span
         movie作成
   .side-bar__main
-    - current_user.movies.each do |movie|
+    - @movies.each do |movie|
       .side-bar__main__image
         .side-bar__main__image__movie         
           = link_to movie_tweets_path(movie.id) do
