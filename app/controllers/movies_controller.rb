@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @movies = Movie.all.includes(:users, :tweets)
   end
   def new
     @movie = Movie.new

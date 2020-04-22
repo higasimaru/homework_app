@@ -57,6 +57,7 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
+      console.log(data)
         buildHTML(data);
        $('form')[0].reset();
        $('.container__main-tweet').animate({
