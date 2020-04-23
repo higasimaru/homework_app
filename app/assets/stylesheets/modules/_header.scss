@@ -21,7 +21,18 @@
       width: 300px;
       background-color: #FFFFFF;
       padding-left: 5px;
-      margin-left: 100px;    
+      margin: 10px 0 0 100px;  
+    }
+    &__btn {
+      background-color: $boro;
+      margin: 10px 0 0 100px;
+      padding: 0 10px;
+      border-radius: 5em;
+      display: flex;
+    }
+    &__hand {
+      color: $crimson;
+      padding: 3px 8px 0 0;
     }
   }
   .btn {
@@ -29,7 +40,7 @@
     color: #361111;
   }
   &__name-box {
-    margin-left: 150px;
+    margin-left: 110px;
 
   }
 }

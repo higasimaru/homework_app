@@ -3,12 +3,18 @@
     %p
       HomeWork App
   .header__search-box
-    %input.header__search-box__input-text{name: :text, placeholder: :search, type: :text}
+    %input.header__search-box__input-text{placeholder: 'コメントテキスト検索', type: :text}
+    %button.header__search-box__btn{type: 'button'}
+      = icon('fa', 'hand-pointer', class: 'header__search-box__hand')
+      %p 一覧へ戻る
+
   .header__name-box
     .header__name-box__name
-    = link_to edit_user_path(current_user.id), class: 'btn' do
-      %span
-        = current_user.nickname      
+      = link_to edit_user_path(current_user.id), class: 'btn' do
+        %p 
+          ようこそ
+          = current_user.nickname 
+          さん     
      
   .header__log-status
     %button.header__log-status__log-status-btn{type: :submit}

@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :set_movie
   def index
+    @movies = Movie.all
     @tweet = Tweet.new
     @tweets = @movie.tweets.includes(:user)
   end
