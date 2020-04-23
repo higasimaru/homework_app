@@ -1,7 +1,7 @@
 $(function() {
-  function listHTML(i, data) {
+  function listHTML(data) {
     if (data.image) {
-      var html = `<div class="container__main-tweet__contents">
+      var html = `<div class="container__main-tweet__contents" data-tweet-id=${data.id}>
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__image">
                         <img src="${data.image}">
@@ -23,7 +23,7 @@ $(function() {
                     </div>
                   </div>`    
     } else {
-      var html = `<div class="container__main-tweet__contents">
+      var html = `<div class="container__main-tweet__contents" data-tweet-id=${data.id}>
                     <div class="container__main-tweet__contents__content">
                       <div class="container__main-tweet__contents__content__text">
                         <span></span>
@@ -42,6 +42,10 @@ $(function() {
                     </div>
                   </div>`
     }
+    $('.container__main-tweet').append(html)
+  }
+  function  noneTweet(str) {
+    var html = `<p>${str}</p>`
     $('.container__main-tweet').append(html)
   }
   function searchHTML(data) {
@@ -121,14 +125,20 @@ $(function() {
       dataType: 'json'
     })
     .done(function(datas) {
-      console.log(datas)
       $('.container__main-tweet').empty();
       if (datas.length !== 0) {
         $.each(datas,function(i, data) {
-          listHTML(i, data);
+          listHTML(data);
+          $('.container__main-tweet').animate({
+            scrollTop: $('.container__main-tweet')[0].scrollHeight
+          },10)
         })
       } else {
-        noneTweet('まだ投稿がありません');
+        noneTweet('まだコメントがありません');
+        var movieId = $('.side-bar__main__image__movie--tweet').data('movie-id')
+        if (data.movie_id == movieId) {
+
+        }
       };
     })
     .fail(function() {

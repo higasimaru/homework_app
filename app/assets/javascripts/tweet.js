@@ -1,4 +1,13 @@
 $(function() { 
+  function movieHTML(movieId, movieImage, movieContent) {
+    if (movieImage) {
+      var html = `<img src="${movieImage}">`
+    } else { 
+      var html = `<p>${movieContent}</p>`
+    }
+    $('[data-movie-id="' + movieId + '"]').empty()
+    $('[data-movie-id="' + movieId + '"]').append(html)
+  }
   function buildHTML(data) {
     if (data.image) {
       var html = `<div class="container__main-tweet__contents" data-tweet-id=${data.id}>
@@ -62,6 +71,14 @@ $(function() {
        $('.container__main-tweet').animate({
          scrollTop: $('.container__main-tweet')[0].scrollHeight
        },500)
+       var movieId = data.movie_id
+       var movieImage = data.image
+       var movieContent = data.content
+       movieHTML(movieId, movieImage, movieContent)
+       $('.side-bar__main').scrollTop(0).animate({
+         scrollTop: $('[data-movie-id="' + movieId + '"]').offset().top -135
+       })
+       $('.side-bar__main').css('color', 'white')
     })
     .fail(function() {
       alert('コメントを入力して下さい');
@@ -76,13 +93,17 @@ $(function() {
       dataType: 'json' 
     })
     .done(function(datas) {
-      if (datas.length !== 0) {       
+      if (datas.length !== 0) { 
         $.each(datas, function(i, data) {
           buildHTML(data)         
         });      
         $('.container__main-tweet').animate({
           scrollTop: $('.container__main-tweet')[0].scrollHeight
         });
+        var movieId = datas.slice(-1)[0].movie_id
+        var movieImage = datas.slice(-1)[0].image
+        var movieContent = datas.slice(-1)[0].content
+        movieHTML(movieId, movieImage, movieContent)   
       }
     })
     .fail(function() {
