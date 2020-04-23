@@ -8,6 +8,12 @@ $(function() {
     $('[data-movie-id="' + movieId + '"]').empty()
     $('[data-movie-id="' + movieId + '"]').append(html)
   }
+  function slideMovie(movieId) {
+    $('.side-bar__main').scrollTop(0).animate({
+         scrollTop: $('[data-movie-id="' + movieId + '"]').offset().top -340
+       })
+       $('.side-bar__main__image').not('[data-color-id="' + movieId + '"]').css('background-color', 'rgba(192, 192, 192, 0.5)')
+  }
   function buildHTML(data) {
     if (data.image) {
       var html = `<div class="container__main-tweet__contents" data-tweet-id=${data.id}>
@@ -75,10 +81,7 @@ $(function() {
        var movieImage = data.image
        var movieContent = data.content
        movieHTML(movieId, movieImage, movieContent)
-       $('.side-bar__main').scrollTop(0).animate({
-         scrollTop: $('[data-movie-id="' + movieId + '"]').offset().top -135
-       })
-       $('.side-bar__main').css('color', 'white')
+       slideMovie(movieId)
     })
     .fail(function() {
       alert('コメントを入力して下さい');
@@ -103,7 +106,8 @@ $(function() {
         var movieId = datas.slice(-1)[0].movie_id
         var movieImage = datas.slice(-1)[0].image
         var movieContent = datas.slice(-1)[0].content
-        movieHTML(movieId, movieImage, movieContent)   
+        movieHTML(movieId, movieImage, movieContent)
+        slideMovie(movieId)   
       }
     })
     .fail(function() {
