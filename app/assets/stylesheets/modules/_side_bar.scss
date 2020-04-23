@@ -18,6 +18,17 @@
     background-color: $boro;
     padding: 5px;
     overflow: auto;
+    &__box {
+      &:hover {
+        a {
+          color: $origin;
+          transition: 1s;
+        }
+        color: $origin;
+        background-color: $blue;
+        transition: 0.9s;
+      }
+    }
     &__image {
       height: 200px;
       width: 240px;

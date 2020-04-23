@@ -127,11 +127,12 @@ $(function() {
     .done(function(datas) {
       $('.container__main-tweet').empty();
       if (datas.length !== 0) {
+        $('.header__search-box__input-text').val('')
         $.each(datas,function(i, data) {
           listHTML(data);
           $('.container__main-tweet').animate({
             scrollTop: $('.container__main-tweet')[0].scrollHeight
-          },10)
+          }, 0.01)
         })
       } else {
         noneTweet('まだコメントがありません');

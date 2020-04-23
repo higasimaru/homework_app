@@ -5,14 +5,14 @@ $(function() {
     } else { 
       var html = `<p>${movieContent}</p>`
     }
-    $('[data-movie-id="' + movieId + '"]').empty()
-    $('[data-movie-id="' + movieId + '"]').append(html)
+    $('[data-movie-id="' + movieId + '"]').empty();
+    $('[data-movie-id="' + movieId + '"]').append(html);
   }
   function slideMovie(movieId) {
     $('.side-bar__main').scrollTop(0).animate({
          scrollTop: $('[data-movie-id="' + movieId + '"]').offset().top -340
        })
-       $('.side-bar__main__image').not('[data-color-id="' + movieId + '"]').css('background-color', 'rgba(192, 192, 192, 0.5)')
+       $('.side-bar__main__image').not('[data-color-id="' + movieId + '"]').css('background-color', 'rgba(192, 192, 192, 0.5)');
   }
   function buildHTML(data) {
     if (data.image) {
@@ -57,7 +57,7 @@ $(function() {
                     </div>
                   </div>`
     }
-    $('.container__main-tweet').append(html)
+    $('.container__main-tweet').append(html);
   }
   $('#new_tweet').on('submit',function(e) {
     e.preventDefault();
@@ -80,13 +80,21 @@ $(function() {
        var movieId = data.movie_id
        var movieImage = data.image
        var movieContent = data.content
-       movieHTML(movieId, movieImage, movieContent)
-       slideMovie(movieId)
+       movieHTML(movieId, movieImage, movieContent);
+       slideMovie(movieId);
+       $('[data-color-id="' + movieId + '"]').hover(
+         function() {
+          $(this).addClass('side-bar__main__box');
+         },
+         function() {
+          $(this).removeClass('side-bar__main__box');
+         }
+       );
     })
     .fail(function() {
       alert('コメントを入力して下さい');
-    })
-  })
+    });
+  });
   var reloadTweets = function() {
     var recentTweet = $('.container__main-tweet__contents:last').data('tweet-id');
     $.ajax({
@@ -103,12 +111,20 @@ $(function() {
         $('.container__main-tweet').animate({
           scrollTop: $('.container__main-tweet')[0].scrollHeight
         });
-        var movieId = datas.slice(-1)[0].movie_id
-        var movieImage = datas.slice(-1)[0].image
-        var movieContent = datas.slice(-1)[0].content
-        movieHTML(movieId, movieImage, movieContent)
-        slideMovie(movieId)   
-      }
+        var movieId = datas.slice(-1)[0].movie_id;
+        var movieImage = datas.slice(-1)[0].image;
+        var movieContent = datas.slice(-1)[0].content;
+        movieHTML(movieId, movieImage, movieContent);
+        slideMovie(movieId);
+        $('[data-movie-id="' + movieId + '"]').hover(
+          function() {
+            $(this).addClass('side-bar__main__box');
+          },
+          function() {
+            $(this).removeClass('side-bar__main__box');
+          }
+        );  
+      };
     })
     .fail(function() {
       alert('通信エラーです');
