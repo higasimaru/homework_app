@@ -10,25 +10,30 @@
           = user.nickname
     .container__main-tweet
       = render partial: 'tweet', collection: @tweets
-    .container__form
-      = form_for [@movie, @tweet] do |f|
-        .container__form__message        
-          = f.text_area :content, class: 'container__form__message__comment', placeholder: "Type a comment", wrap: 'hard', cols: '0.01'
-          .container__form__message__right-box
-            = f.label :image, class: 'container__form__message__right-box__label' do
-              = icon('fa', 'camera-retro', class: "container__form__message__right-box__label__camera")
-              = f.file_field :image, class: 'filecontainer__form__message__right-box__label__file'
-        .container__form__submit          
-          = button_tag type: 'submit', class: 'container__form__submit__btn' do            
-            .container__form__submit__btn__icon
-              = icon('fa', 'comments', class: 'container__form__submit__btn__icon__shape')
-            %span
-              コメント
-          
+    
+    - if user_signed_in?
+      .container__form
+        = form_for [@movie, @tweet] do |f|
+          .container__form__message        
+            = f.text_area :content, class: 'container__form__message__comment', placeholder: "Type a comment", wrap: 'hard', cols: '0.01'
+            .container__form__message__right-box
+              = f.label :image, class: 'container__form__message__right-box__label' do
+                = icon('fa', 'camera-retro', class: "container__form__message__right-box__label__camera")
+                = f.file_field :image, class: 'filecontainer__form__message__right-box__label__file'
+          .container__form__submit          
+            = button_tag type: 'submit', class: 'container__form__submit__btn' do            
+              .container__form__submit__btn__icon
+                = icon('fa', 'comments', class: 'container__form__submit__btn__icon__shape')
+              %span
+                コメント
+    - else 
+      .container__form 
+        = link_to new_user_session_path do
+          %p ログインしてコメントしましょう！
 
     .container__footer
       .container__footer__logo
-        %p
-          HomeWork App 2020
+        %p HomeWork App 2020
+
   = render partial: 'side_bar'
  

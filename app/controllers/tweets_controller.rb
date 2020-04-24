@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :move_to_index, only: [:create]
   before_action :set_movie
   def index
     @movies = Movie.all
@@ -27,6 +28,10 @@ class TweetsController < ApplicationController
 
   def set_movie
     @movie = Movie.find(params[:movie_id]) 
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
   end
   
 end
