@@ -10,11 +10,12 @@
 
   .header__name-box
     .header__name-box__name
-      = link_to edit_user_path(current_user.id), class: 'btn' do
-        %p 
-          ようこそ
-          = current_user.nickname 
-          さん     
+      -if user_signed_in?
+        = link_to edit_user_path(current_user.id), class: 'btn' do
+          %p 
+            ようこそ
+            = current_user.nickname 
+            さん     
      
   .header__log-status
     %button.header__log-status__log-status-btn{type: :submit}
