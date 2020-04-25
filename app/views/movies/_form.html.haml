@@ -35,10 +35,16 @@
     .movie-form__submit 決定
 
     .movie-form__modal
-      .movie-form__modal__user-name
+      .movie-form__modal__box
+        .movie-form__modal__movie
+        .movie-form__modal__user
         %p
-          = current_user.nickname          
+          = current_user.nickname 
+        .movie-form__modal__icon
+          = icon('fa', 'calendar-times')
       .movie-form__modal__member
+      .movie-form__modal__question
+        %p Are You Sure?
       .movie-form__modal__btn
         = f.submit '保存', class: 'movie-form__submit'
 

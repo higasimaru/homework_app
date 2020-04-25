@@ -1,5 +1,4 @@
-$(function() {
-  
+$(function() {  
   function buildHTML(data) {
     var html = `<div class='movie-form__result__box'>
                   <div class="name">${data.name}</div>
