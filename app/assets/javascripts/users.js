@@ -71,5 +71,16 @@ $(function() {
   $(document).on('click', '.remove-btn', function() {
     var userId = $(this).data('user-id')
     $('[data-user-id="' + userId + '"]').remove()
-    });
+  });
+  $ ('.movie-form__field__movie-name').on('keyup', function() {
+    var movieName = $(this).val()
+    $('.movie-form__modal__movie').text('')
+    $('.movie-form__modal__movie').append("<p>" + movieName + "</p>");
+  });
+  $('.movie-form__submit').on('click', function() {
+    $('.movie-form__modal').slideDown();
+  })
+  $('.movie-form__modal__icon').on('click', function() {
+    $('.movie-form__modal').slideUp();
+  })
 });

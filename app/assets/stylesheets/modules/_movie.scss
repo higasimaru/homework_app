@@ -1,129 +1,168 @@
-.movie-form{
-  padding-left: 30px;
-  &__field {
-  margin: 15px;
-    label {
-      font-size: 20px;
-    }
-    input {
-      height: 40px;
-      width: 250px;
-      padding-left: 10px;
-      margin-left: 43px;
-      border: 1px solid;
-    }
-}
-  &__user {
-    label {
-      font-size: 20px;
-    }
-    input {
-      height: 40px;
-      width: 250px;
-      padding-left: 10px;
-      border: 1px solid;
-    }
-  }
-  &__submit {
-    height: 50px;
-    width: 100px;
-    background-color: $crimson;
+.movie-wrapper {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/blue_sky.jpg");
+  background-size: cover;
+  h1 {
     color: $origin;
-    border-radius: 5em;
-    display: block;
-    text-align: center;
-    line-height: 50px;
-    margin: 0 auto;
-    cursor: pointer;
   }
-  &__result {
-    margin: 10px 15px 15px 135px;
-    &__box {
-      width: 500px;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid $boro;
-      margin-bottom: 10px;
-      .add-btn {
-        width: 60px;
-        font-size: 15px;
-        background:  $crimson;
-        color: $origin;
-        border-radius: 3em;
-        text-align: center;
-        cursor: pointer;
-      }
-    }
+  a {
+    font-size: 13px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: $origin;
   }
-  &__member {
-    display: flex;
-    border: 1px solid $boro;
-    padding: 20px 0;
-    margin: 50px 0;
-    &__name-label {
-      font-size: 20px;
-      padding-left: 10px;
-    }
-    &__list__lists {
-      width: 500px;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid $crimson;
-      margin-left: 42px;
-      margin-bottom: 10px;
-      .remove-btn {
-        width: 60px;
-        font-size: 15px;
-        background-color: $boro;
-        border-radius: 3em;
-        text-align: center;
-        cursor: pointer;
+  .movie-form{    
+    padding: 50px;
+    background-color: $origin;
+    opacity: 0.8;   
+    &__field {
+    margin: 15px;
+      label {
+        font-size: 20px;
       }
-      .self-btn {
-        width: 60px;
-        font-size: 15px;
-        background-color: #9c9ce4;
-        color: $origin;
-        border-radius: 3em;
-        text-align: center;
+      textarea {
+        max-height: 40px;
+        min-height: 40px;
+        width: 300px;
+        padding: 8px;
+        margin-left: 43px;        
+        border: 1px solid;
+      }
+      .field_with_errors {    
+        display: inline-block;
+        textarea {
+          border: 1px solid red;
+        }
       }
     } 
-  }
-  &__modal {
-    height: 400px;
-    width: 500px;
-    color: $origin;
-    font-weight: bold;    
-    background: linear-gradient(#eb3434,#271b1bf1 );
-    opacity: 0.8;
-    border-radius: 5px;
-    padding: 10px;
-    position: absolute;
-    // top: 15%;
-    left: 30%;
-    // display: none;
-    &__box {
-      font-size: 30px;
+    &__errors {
+      background-color: $origin;
+      opacity: 0.7;
+      color: red;
       display: flex;
-    }
-    &__member {
-      height: 60%;
-      width: 90%;
-      font-size: 20px;
-      margin: 10px auto 8px;
-      display: flex;
-      justify-content: space-evenly;
-      overflow: auto;
-      flex-wrap: wrap;
-      align-content: stretch;
-      p {        
-        padding: 5px 20px;
+      ul {
+        list-style: none;
+        margin-left: 15px;
       }
     }
-    &__question {
-      font-size: 20px;
+    &__user {
+      label {
+        font-size: 20px;
+      }
+      textarea {
+        max-height: 40px;
+        min-height: 40px;
+        width: 250px;
+        padding: 8px;
+        border: 1px solid;
+      }
+    }
+    &__submit {
+      height: 50px;
+      width: 100px;
+      background-color: $crimson;
+      color: $origin;
+      border-radius: 5em;
+      display: block;
       text-align: center;
-      padding: 5px 0;
+      line-height: 50px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    &__result {
+      margin: 10px 15px 15px 135px;
+      &__box {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $boro;
+        margin-bottom: 10px;
+        .add-btn {
+          width: 60px;
+          font-size: 15px;
+          background:  $crimson;
+          color: $origin;
+          border-radius: 3em;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+    }
+    &__member {
+      display: flex;
+      border: 1px solid $boro;
+      padding: 20px 0;
+      margin: 50px 0;
+      &__name-label {
+        font-size: 20px;
+        padding-left: 10px;
+      }
+      &__list__lists {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $crimson;
+        margin-left: 42px;
+        margin-bottom: 10px;
+        .remove-btn {
+          width: 60px;
+          font-size: 15px;
+          background-color: $boro;
+          border-radius: 3em;
+          text-align: center;
+          cursor: pointer;
+        }
+        .self-btn {
+          width: 60px;
+          font-size: 15px;
+          background-color: #9c9ce4;
+          color: $origin;
+          border-radius: 3em;
+          text-align: center;
+        }
+      } 
+    }
+    &__modal {
+      height: 400px;
+      width: 500px;
+      color: $origin;
+      font-weight: bold;    
+      background: linear-gradient(to bottom right, #eb3434,#271b1bf1 );
+      opacity: 1;
+      border-radius: 5px;
+      padding: 10px;
+      position: absolute;
+      top: 15%;
+      left: 25%;
+      display: none;
+      &__box {
+        font-size: 30px;
+        display: flex;
+        justify-content: space-between;
+      }
+      &__member {
+        height: 60%;
+        width: 90%;
+        font-size: 20px;
+        margin: 10px auto 8px;
+        display: flex;
+        justify-content: space-evenly;
+        overflow: auto;
+        flex-wrap: wrap;
+        align-content: stretch;
+        p {        
+          padding: 5px 20px;
+        }
+      }
+      &__icon {
+        cursor: pointer;
+      }
+      &__question {
+        font-size: 20px;
+        text-align: center;
+        padding: 5px 0;
+      }
     }
   }
 }
