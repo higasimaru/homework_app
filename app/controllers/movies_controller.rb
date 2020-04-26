@@ -1,5 +1,8 @@
 class MoviesController < ApplicationController
+
+  before_action :move_to_index, except: [:index]
   def index
+    @movies = Movie.all.includes(:users)
   end
   def new
     @movie = Movie.new
@@ -32,6 +35,10 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:name, user_ids: [])
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
   end
 
 end

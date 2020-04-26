@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  background-image: url("/top_page.jpg");
+  background-repeat: repeat;
+  .side-bar {
+    opacity: 0.8;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    opacity: 0.9;
+  }
+  .container__footer{
+    opacity: 0.8;
+  }
+  .movie-container {
+    padding-top: 90px;
+    &__contents{      
+      margin: 100px 0 0 50px;
+      a {
+        color: $origin;
+      }
+    }   
+  }
+}

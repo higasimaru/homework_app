@@ -1,8 +1,12 @@
+* {
+  box-sizing: border-box;
+}
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'reset';
 @import 'mixin';
 @import 'modules/tweets_index';
+@import 'modules/movie_index';
 @import 'modules/header';
 @import 'modules/side_bar';
 @import 'modules/user';

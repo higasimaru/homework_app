@@ -1,2 +1,38 @@
 .wrapper
   = render partial: 'tweets/side_bar'
+  .movie-container
+    .header
+      .header__logo
+        %p HomeWork App
+      .header__headline
+        %h2 このサイトで出来ること
+      .header__name-box
+        .header__name-box__name
+          - if user_signed_in?
+            = link_to edit_user_path(current_user.id), class: 'btn' do
+              %p 
+                ようこそ
+                = current_user.nickname 
+                さん  
+          -else
+            %p ようこそ ゲスト さん
+                
+      .header__log-status
+        %button.header__log-status__log-status-btn{type: :submit}
+          - if user_signed_in?
+            = link_to destroy_user_session_path, method: :delete, class: 'btn' do      
+              %span
+                ログアウト
+          - else
+            = link_to new_user_session_path do 
+              %span
+                ログイン
+    
+    .movie-container__contents
+      .movie-container__contents__content
+      = link_to new_movie_path do
+        %h2 コミュニティーを作ってメッセージを送ろう!
+    
+    .container__footer
+      .container__footer__logo
+        %p HomeWork App 2020

@@ -1,11 +1,8 @@
-* {
-  box-sizing: border-box;
-}
 @import 'mixin';
 .container {
   height: 100vh;
   width: calc(100% - 300px);  
-  background-color: $boro;
+  background-color: rgba(226, 225, 222, 0.76);
   margin-top: 5px;
   position: fixed;
   top: 90px;
@@ -21,6 +18,7 @@
     margin: 5px auto 40px;
     overflow: scroll;
     @include box-shadow;
+
     &__contents {
       border: 1px solid $boro;
       padding: 5px; 
@@ -58,6 +56,16 @@
     margin: 0 auto;
     padding: 20px;
     @include box-shadow;
+    a { 
+      color: gray;
+      font-size: 20px;
+      text-decoration: none;
+      margin-left: 220px;
+      line-height: 70px;
+      p {
+        display: inline;      
+      }
+    }
     &__message {
       display: flex;
       position: relative;
@@ -72,10 +80,7 @@
         border: thin solid $boro;
         padding-top: 5px;
         padding-left: 10px;
-        margin-bottom: 12px;
-        
-        
-      
+        margin-bottom: 12px;     
       }     
       &__right-box {
         position: absolute;
@@ -84,6 +89,7 @@
           display: block;
           height: 100%;
           background-color: $boro;
+          cursor: pointer;
           &__camera {
             font-size: 30px;
             color: brown;
@@ -106,6 +112,9 @@
       &__btn {        
         display: flex;
         padding-left: 6px;
+        &:focus {
+          outline: 0;
+        }
         &__icon {
           color: $origin;
         }
@@ -120,10 +129,11 @@
     width: 100%;
     background-color: #f5f5f5;
     position: fixed;
-    bottom: 0;
-    &__logo {    
-      text-align: center;
-      line-height: 40px;
+    bottom: 0;    
+    &__logo { 
+      width: calc(100% - 300px);
+      text-align: center;   
+      line-height: 40px;    
     }
   }
 }

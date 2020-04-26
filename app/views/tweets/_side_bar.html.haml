@@ -1,6 +1,6 @@
 .side-bar
   .side-bar__movies
-    = link_to new_movie_path class: 'btn' do
+    = link_to new_movie_path do
       %span
         movie作成
   .side-bar__main
@@ -9,7 +9,7 @@
         .side-bar__main__image__movie         
           = link_to movie_tweets_path(movie.id) do
             %span
-            = "#{movie.name}(コメント)"     
+            = "#{movie.name}(コメントルームへ)"     
         .side-bar__main__image__movie--edit         
           = link_to edit_movie_path(movie.id) do
             %span

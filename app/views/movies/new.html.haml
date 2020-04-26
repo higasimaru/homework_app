@@ -1,4 +1,7 @@
-.movie-form
+.movie-wrapper
   %H1
-    動画決定
+    Add Member           
+    = link_to root_path do
+      %span トップページへ戻る
+
   = render partial: 'form', locals: { movie: @movie } 
