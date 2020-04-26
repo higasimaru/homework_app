@@ -8,6 +8,7 @@
           メンバー :
         - @movie.users.map do |user|  
           = user.nickname
+          %span ,
     .container__main-tweet
       = render partial: 'tweet', collection: @tweets
     

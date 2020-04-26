@@ -18,19 +18,23 @@
     opacity: 0.8;   
     &__field {
     margin: 15px;
+    display: flex;
       label {
+        display: inline-block;
         font-size: 20px;
+        margin-left: 55px;
+        margin-top: 5px;
       }
       textarea {
         max-height: 40px;
         min-height: 40px;
-        width: 300px;
+        width: 310px;
         padding: 8px;
-        margin-left: 43px;        
+        margin-left: 21px;        
         border: 1px solid;
       }
       .field_with_errors {    
-        display: inline-block;
+        
         textarea {
           border: 1px solid red;
         }
@@ -47,14 +51,17 @@
       }
     }
     &__user {
+      display: flex;
       label {
         font-size: 20px;
+        margin-top: 5px;
       }
       textarea {
         max-height: 40px;
         min-height: 40px;
-        width: 250px;
+        width: 310px;
         padding: 8px;
+        margin-left: 20px;
         border: 1px solid;
       }
     }
@@ -69,6 +76,9 @@
       line-height: 50px;
       margin: 0 auto;
       cursor: pointer;
+      &:focus {
+        outline: 0;
+      }
     }
     &__result {
       margin: 10px 15px 15px 135px;

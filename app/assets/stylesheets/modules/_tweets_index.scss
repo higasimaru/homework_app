@@ -1,11 +1,8 @@
-* {
-  box-sizing: border-box;
-}
 @import 'mixin';
 .container {
   height: 100vh;
   width: calc(100% - 300px);  
-  background-color: $boro;
+  background-color: rgba(226, 225, 222, 0.76);
   margin-top: 5px;
   position: fixed;
   top: 90px;
@@ -21,6 +18,7 @@
     margin: 5px auto 40px;
     overflow: scroll;
     @include box-shadow;
+
     &__contents {
       border: 1px solid $boro;
       padding: 5px; 
@@ -91,6 +89,7 @@
           display: block;
           height: 100%;
           background-color: $boro;
+          cursor: pointer;
           &__camera {
             font-size: 30px;
             color: brown;
@@ -113,6 +112,9 @@
       &__btn {        
         display: flex;
         padding-left: 6px;
+        &:focus {
+          outline: 0;
+        }
         &__icon {
           color: $origin;
         }
