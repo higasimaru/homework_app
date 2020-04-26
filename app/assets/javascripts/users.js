@@ -48,7 +48,7 @@ $(function() {
         var user = $('.add-btn').data('user-id');
         if ($.inArray(user, idArray) !== -1) {         
         $('.movie-form__result__box').remove();
-      }
+      };
         });
       } else if(input.length == 0) {
         return false;
@@ -67,7 +67,7 @@ $(function() {
     addMember(userId, userName);
     dicideMember(userId);
     memberModal(userId, userName);      
-  });   
+  }); 
   $(document).on('click', '.remove-btn', function() {
     var userId = $(this).data('user-id')
     $('[data-user-id="' + userId + '"]').remove()

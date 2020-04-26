@@ -1,7 +1,7 @@
 .header
   .header__logo
-    %p
-      HomeWork App
+    = link_to root_path do
+      %p HomeWork App
   .header__search-box
     %input.header__search-box__input-text{placeholder: 'コメントテキスト検索', type: :text}
     %button.header__search-box__btn{type: 'button'}

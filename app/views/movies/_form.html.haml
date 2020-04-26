@@ -27,11 +27,11 @@
 
         - movie.users.each do |user|
           - if current_user.nickname != user.nickname
-            .movie-form__member__list__lists
+            .movie-form__member__list__lists{data: {user: {id: user.id}}}
               %input{name: 'movie[user_ids][]', value: user.id, type: 'hidden'}
               %p.member
                 = user.nickname
-              .remove-btn 削除
+              .remove-btn{id: user.id, data:{user: {id: user.id}}} 削除
     .movie-form__submit 決定
 
     .movie-form__modal
