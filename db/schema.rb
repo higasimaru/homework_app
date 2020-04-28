@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200409090431) do
+ActiveRecord::Schema.define(version: 20200428122113) do
 
   create_table "movie_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "movie_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20200409090431) do
     t.integer  "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["content"], name: "index_tweets_on_content", length: { content: 32 }, using: :btree
     t.index ["movie_id"], name: "index_tweets_on_movie_id", using: :btree
     t.index ["user_id"], name: "index_tweets_on_user_id", using: :btree
   end
