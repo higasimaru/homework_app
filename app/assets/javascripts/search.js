@@ -136,10 +136,6 @@ $(function() {
         })
       } else {
         noneTweet('まだコメントがありません');
-        var movieId = $('.side-bar__main__image__movie--tweet').data('movie-id')
-        if (data.movie_id == movieId) {
-
-        }
       };
     })
     .fail(function() {
