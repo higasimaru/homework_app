@@ -9,7 +9,7 @@
 # 本番環境
 
   ### URL
-    http://18.178.141.223/
+  - http://18.178.141.223/
     
   ### Basic認証
   - user name: admin
