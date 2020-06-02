@@ -7,12 +7,17 @@
   ユーザー間のグループ作成機能、画像、メッセージ投稿機能、ユーザー、メッセージ検索機能を実装したアプリです。
 
 # 本番環境
-  http://18.178.141.223/
+
+  ### URL
+    http://18.178.141.223/
+    
+  ### Basic認証
+  - user name: admin
+  - password : 2222
   
-  ログイン情報（テスト用）
-  
-  - email: test@me.com
-  - password: foobar
+  ### ログイン情報（テスト用）
+  - email    : test@me.com
+  - password : foobar
   
 # 制作意図
   LINE,Twitter,などSNSでは簡単に検索機能を使うことができます。
